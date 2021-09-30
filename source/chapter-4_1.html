@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 4 Vue Router</title>
+    <meta name="viewpoint"
+    content="width=device-width">
+</head> 
+
+
+<body>
+    <div id="app">
+        <router-link to="/top">トップページ</router-link>
+        <router-link to="/users">ユーザ一覧ページ</router-link>
+        <router-view></router-view>
+    </div>
+</body>
+
+
+<script src="../vue.js"></script> 
+<script src="../vue-router.js"></script>
+<script>
+
+var router = new VueRouter({
+    routes: [
+        {
+            path: '/top',
+            component: {
+                template: '<div>トップページです。</div>'
+            }
+        },
+        {
+            path: '/users',
+            component: {
+                template: '<div>ユーザ一覧ページです。</div>'
+            }
+        }
+    ]
+})
+
+var app = new Vue ({
+    router: router
+}).$mount('#app')
+
+</script>

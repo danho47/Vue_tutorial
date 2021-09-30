@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 3 コンポーネントの基本</title>
+    <meta name="viewpoint"
+    content="width=device-width">
+    <link rel="stylesheet" href="style.css">
+    <script src="../vue.js"></script>
+</head>
+
+
+<body>
+    <!--ぐろーばる -->
+    <div id="main">
+        <p>グローバルコンポーネント</p>
+        <fruits-list-title></fruits-list-title>
+        <fruits-list-desctiption></fruits-list-desctiption>
+        <fruits-list-table></fruits-list-table>
+        <!-- 親子 -->
+        <p>親子</p>
+        <fruits-list></fruits-list>
+
+    </div>
+
+    <!-- ローカル -->
+    <div id='fruits-list2'>
+        <div>
+            <p>ローカル</p>
+            <fruits-list-title></fruits-list-title>
+        </div>
+    </div>
+
+    <!-- 日付 -->
+    <div id='app'>
+        <p>描画関数</p>
+        <input-date-with-today></input-date-with-today>
+    </div>
+
+    <div id='item'>
+        <p>親→子</p>
+        <item-desc v-bind:item-name='myItem'></item-desc>
+    </div>
+
+    <div id="fruits">
+        <p>
+            親→子②
+        </p>
+        <ol>
+            <fruits-item-name v-for="fruit in fruitsItems" :key="fruit.name" :fruits-item="fruit">
+            </fruits-item-name>
+        </ol>
+    </div>
+
+    <div id="fruits-counter">
+        <div v-for="fruit in fruits">
+            {{fruit.name}}: <counter-button v-on:increment="incrementCartStatus()"></counter-button>
+        </div>
+
+        <p>合計: {{total}}</p>
+    </div>
+</body>
+
+<script src="chapter_3_1.js"
+></script>
+</html>
