@@ -1,1 +1,1 @@
-# Vue.js tutorial
+# Node.js and Vue.js tutorial
